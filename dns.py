@@ -3,7 +3,7 @@ import requests
 # 设置 Cloudflare 的 DoH URL
 doh_url = "https://cloudflare-dns.com/dns-query"
 
-print("输入请求域名")
+print("输入请求域名：")
 satou_host = input()
 
 # 定义不同记录类型的映射关系
