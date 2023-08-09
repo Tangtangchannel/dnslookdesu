@@ -5,7 +5,8 @@ def main():
     parser = argparse.ArgumentParser(description="使用 Cloudflare 的 DoH 服务查询 DNS 记录")
     parser.add_argument("domain", type=str, help="要查询的域名")
     parser.add_argument("-t", "--type", type=str, help="DNS 记录类型 (A, NS, CNAME, MX, TXT, AAAA, SRV, CAA, HTTPS, SVCB, SPF)")
-    parser.add_argument("-d", "--dns", type=str, help="要查询的 DNS 服务器（可选）")
+    parser.add_argument("-d", "--dns", type=str, help="要查询的 DNS 服务器（可选），默认为标准doh请求url.例如8.8.8.8为"
+                                                      "'https://8.8.8.8/dns-query'")
     args = parser.parse_args()
 
     doh_url = "https://cloudflare-dns.com/dns-query"
