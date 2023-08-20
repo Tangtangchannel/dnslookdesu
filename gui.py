@@ -11,7 +11,7 @@ class DNSQueryApp(QMainWindow):
         self.initUI()
 
     def initUI(self):
-        self.setWindowTitle("DNSLookdesu")
+        self.setWindowTitle("DNSLookdesu By ‘糖糖’ ")
         self.setGeometry(100, 100, 600, 400)
 
         self.domain_label = QLabel("域名:")
