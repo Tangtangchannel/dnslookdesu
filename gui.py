@@ -1,6 +1,8 @@
 import sys
 import requests
-from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QLineEdit, QPushButton, QTextEdit, QVBoxLayout, QWidget, QHBoxLayout, QComboBox, QCheckBox
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QLineEdit, QPushButton, QTextEdit, QVBoxLayout, QWidget, \
+    QHBoxLayout, QComboBox, QCheckBox, QMessageBox
+
 
 class DNSQueryApp(QMainWindow):
     def __init__(self):
@@ -9,7 +11,7 @@ class DNSQueryApp(QMainWindow):
         self.initUI()
 
     def initUI(self):
-        self.setWindowTitle("DNS查询工具")
+        self.setWindowTitle("DNSLookdesu")
         self.setGeometry(100, 100, 600, 400)
 
         self.domain_label = QLabel("域名:")
@@ -97,6 +99,10 @@ class DNSQueryApp(QMainWindow):
             answers = data.get("Answer", [])
             result_str = ""
 
+            if not answers:
+                    error_message = "未查询到记录。"
+                    QMessageBox.critical(self, "错误", error_message)
+                    return ""
             for answer in answers:
                 result_str += "类型: {}\n".format(answer["type"])
                 result_str += "名称: {}\n".format(answer["name"])
@@ -131,6 +137,9 @@ class DNSQueryApp(QMainWindow):
                         result_str += "无效的 SRV 数据格式\n"
         else:
             result_str = "错误: {}\n".format(response.status_code)
+
+
+
 
         return result_str
 
