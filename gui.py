@@ -13,7 +13,6 @@ class DNSQueryApp(QMainWindow):
     def initUI(self):
         self.setWindowTitle("DNSLookdesu By ‘糖糖’ ")
         self.setGeometry(100, 100, 600, 400)
-
         self.domain_label = QLabel("域名:")
         self.domain_input = QLineEdit()
 
@@ -100,9 +99,9 @@ class DNSQueryApp(QMainWindow):
             result_str = ""
 
             if not answers:
-                    error_message = "未查询到记录。"
-                    QMessageBox.critical(self, "错误", error_message)
-                    return ""
+                error_message = "未查询到记录。"
+                QMessageBox.critical(self, "错误", error_message)
+                return ""
             for answer in answers:
                 result_str += "类型: {}\n".format(answer["type"])
                 result_str += "名称: {}\n".format(answer["name"])
@@ -138,10 +137,8 @@ class DNSQueryApp(QMainWindow):
         else:
             result_str = "错误: {}\n".format(response.status_code)
 
-
-
-
         return result_str
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
