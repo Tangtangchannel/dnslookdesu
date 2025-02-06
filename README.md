@@ -1,4 +1,4 @@
-# DNSLookdesu（ドメインネームシステム見せるです）
+# DNSLookdesu
 
 
 (现已在ver 1.8.20版本推出图形界面)
